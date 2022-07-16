@@ -1,0 +1,14 @@
+.title {
+  font-size: 70px;
+  font-weight: bold;
+  color: #0B5431;
+  margin-bottom: 10px;
+}
+
+.country_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}

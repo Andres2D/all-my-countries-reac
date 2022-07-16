@@ -1,4 +1,4 @@
-import { Country } from '../interfaces/country.interace';
+import { Country } from '../interfaces/country.interface';
 
 const countriesListMock: Country[] = [
   {
