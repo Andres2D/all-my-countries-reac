@@ -1,0 +1,17 @@
+.search {
+  font-size: 45px;
+  padding: 10px;
+  background-color: #ADF4D1;
+  color: #0B5431;
+  border: 6px solid #0B5431;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.search:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: rgba(11, 84, 49, 70%);
+}
