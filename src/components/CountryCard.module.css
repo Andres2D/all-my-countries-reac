@@ -1,0 +1,28 @@
+.card {
+  border: 4px solid #0B5431;
+  width: 200px;
+  margin: 20px;
+  border-radius: 8px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 300ms;
+  color: #0B5431;
+}
+
+.card:hover {
+  background-color: #0B5431;
+  color: #E6FBF1;
+}
+
+.flag {
+  width: 150px;
+  height: 100px;
+  filter: drop-shadow(
+    2px 2px 2px rgba(11, 84, 49, 70%)
+  );
+}
+
+.common_name {
+  font-size: 30px;
+  font-weight: lighter;
+}
