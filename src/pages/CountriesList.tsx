@@ -1,21 +1,20 @@
+import { useState } from 'react';
 import countriesListMock from '../mock/countries-list.mock';
 import MassiveInput from '../components/MassiveInput';
 import CountryCard from '../components/CountryCard';
 import styles from './CountriesList.module.css';
 
 const CountriesList = () => {
-
-  const countriesCards = countriesListMock.map(country => {
-    return ( 
-      <CountryCard 
-        key={country.name?.official} 
-        country={country}  
-      />
-    );
-  });
+  
+  const [countriesList, setCountriesList] = useState([...countriesListMock]);
 
   const searchHandler = (event: React.FormEvent<HTMLInputElement>): void => {
-    console.log(event.currentTarget.value);
+    if(!event.currentTarget.value || event.currentTarget.value.trim() === '') {
+      setCountriesList([...countriesListMock]);
+    }
+    setCountriesList([...countriesListMock]
+      .filter(country => country.name?.common?.toLocaleLowerCase()
+      .includes(event.currentTarget.value.toLocaleLowerCase())));
   }
 
   return (
@@ -26,7 +25,13 @@ const CountriesList = () => {
         onChange={searchHandler}
       />
       <section className={styles.country_cards}>
-        {countriesCards}
+        {
+          countriesList.map(country => ( 
+            <CountryCard 
+              key={country.name?.official} 
+              country={country}  
+            />
+          ))}
       </section>
     </div>  
   );
