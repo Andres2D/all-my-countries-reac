@@ -3,11 +3,17 @@ import styles from './CountryCard.module.css';
 
 interface Props {
   country: Country;
+  onClick: (countryId?: string) => void;
 }
 
-const CountryCard: React.FC<Props> = ({country}) => {
+const CountryCard: React.FC<Props> = ({country, onClick}) => {
+
+  const clickHandler = () => {
+    onClick(country.name?.common);
+  };
+
   return (
-    <div className={styles.card}>
+    <div onClick={clickHandler} className={styles.card}>
       <img 
         className={styles.flag} 
         src={country.flags?.svg} 
