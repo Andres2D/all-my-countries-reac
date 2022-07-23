@@ -37,7 +37,8 @@ const Country = () => {
     fifa,
     idd,
     languages,
-    translations
+    translations,
+    maps
   } = countryMock;
   if(!countryName) {
     return <p className='centered'>Invalid country name</p>
@@ -53,6 +54,8 @@ const Country = () => {
           nationalFlag={flags?.svg}
           coatOfArmsFlag={coatOfArms?.svg}
           countryName={name?.common}
+          googleMapsLink={maps?.googleMaps}
+          openStreetMapsLink={maps?.openStreetMaps}
         />
         <CountryInformation 
           population={population ? population?.toLocaleString() : '0'}
@@ -61,7 +64,7 @@ const Country = () => {
           timezones={timezones ? timezones?.join(' | ') : 'none'}
           tld={tld ? tld.join(' | ') : 'none'}
           borders={borders ? borders.join(' | ') : 'none'}
-          region={`${region} - ${subregion}}`}
+          region={`${region} - ${subregion}`}
           currencies={currencies ? currencyFormat(currencies) : 'none'}
           languages={languages ? languagesFormat(languages) : 'none'}
           idd={idd ? phoneCodesFormat(idd) : 'none'}
