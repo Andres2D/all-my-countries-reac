@@ -1,0 +1,35 @@
+.information {
+  width: 40%;
+  border-radius: 8px;
+  min-height: 550px;
+  background-color: #0B5431;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.info_field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #E6FBF1
+}
+
+.field_title {
+  font-weight: bolder;
+  margin: 8px;
+  text-align: start;
+}
+
+.field_value {
+  font-weight: lighter;
+  margin: 8px;
+  text-align: end;
+}
+
+.info_translations {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
