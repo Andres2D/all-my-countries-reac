@@ -14,8 +14,8 @@ export interface Country {
   altSpellings?: string[];
   region?:       string;
   subregion?:    string;
-  languages?:    { [id: string] : string };
-  translations?: { [key: string]: Translation };
+  languages?:    Languages;
+  translations?: Translations;
   latlng?:       number[];
   landlocked?:   boolean;
   borders?:      string[];
@@ -46,12 +46,16 @@ interface NativeName {
   [id: string]: Translation;
 }
 
+export interface Translations { 
+  [key: string]: Translation 
+};
+
 interface Translation {
   official?: string;
   common?:   string;
 }
 
-interface Currencies {
+export interface Currencies {
   [id: string] : Currency;
 }
 
@@ -60,14 +64,18 @@ interface Currency {
   symbol?: string;
 }
 
-interface Idd {
+export interface Idd {
   root?:     string;
   suffixes?: string[];
 }
 
-interface Demonyms {
+export interface Demonyms {
   [id: string] : Demony;
 }
+
+export interface Languages { 
+  [id: string] : string 
+};
 
  interface Demony {
   f?: string;
