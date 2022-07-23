@@ -8,7 +8,8 @@ import {
   demonymsFormat,
   phoneCodesFormat,
   languagesFormat,
-  translationsFormat
+  translationsFormat,
+  countryNameFormat
 } from '../helpers/formats';
 
 import styles from './Country.module.css';
@@ -43,12 +44,10 @@ const Country = () => {
   }
 
   // const country = countryQueryParamDecoder(countryName);
-  const nativeName = name?.nativeName ? Object.values(name.nativeName)[0].common : null;
-  const countryTitle = `${name?.common} ${nativeName ? `| ${nativeName}` : ''} | ${name?.official}`;
 
   return (
     <>
-      <h1 className={styles.title}>{countryTitle}</h1>
+      <h1 className={styles.title}>{name ? countryNameFormat(name) : 'Not found'}</h1>
       <section className={styles.info_section}>
         <FlagsContainer 
           nationalFlag={flags?.svg}

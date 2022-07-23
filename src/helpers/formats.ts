@@ -3,8 +3,37 @@ import {
   Demonyms,
   Idd,
   Languages,
-  Translations
+  Translations,
+  Name
 } from '../interfaces/country.interface';
+
+export const countryNameFormat = (name: Name): string => {
+
+  let nameFormatted: string[] = [];
+
+  if(name.common) {
+    nameFormatted.push(name.common);
+  }
+  
+  if(name.official && !nameFormatted.includes(name.official)) {
+    nameFormatted.push(name.official);
+  }
+
+  if(name.nativeName) {
+    Object.values(name.nativeName).forEach(nameNative => {
+      if(nameNative.common && !nameFormatted.includes(nameNative.common)) {
+        nameFormatted.push(nameNative.common);
+      }
+      
+      if(nameNative.official && !nameFormatted.includes(nameNative.official)) {
+        nameFormatted.push(nameNative.official);
+      }
+    });
+  }
+
+  return nameFormatted.join(' | ')
+
+};
 
 export const currencyFormat = (currencies: Currencies): string => {
   let currencyFormatted: string[] = [];

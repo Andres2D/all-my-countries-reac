@@ -36,7 +36,7 @@ export interface Country {
   postalCode?:   PostalCode;
 }
 
-interface Name {
+export interface Name {
   common?:     string;
   official?:   string;
   nativeName?: NativeName;
