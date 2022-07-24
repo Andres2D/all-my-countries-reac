@@ -1,4 +1,4 @@
-import Button from './UI/Button';
+import ButtonLink from './UI/ButtonLink';
 import styles from './FlagsContainer.module.css';
 
 interface Props {
@@ -21,8 +21,8 @@ const FlagsContainer: React.FC<Props> = ({nationalFlag, coatOfArmsFlag, countryN
         <img className={styles.flag} src={coatOfArmsFlag} alt={`coa_${countryName}`} />
       </div>
       <div className={styles.maps}>
-        {googleMapsLink && <Button refPage={googleMapsLink} label='Google Maps' />}
-        {openStreetMapsLink && <Button refPage={openStreetMapsLink} label='OpenStreet' />}
+        {googleMapsLink && <ButtonLink isExternal refPage={googleMapsLink} label='Google Maps' />}
+        {openStreetMapsLink && <ButtonLink isExternal refPage={openStreetMapsLink} label='OpenStreet' />}
       </div>
     </div> 
   );
