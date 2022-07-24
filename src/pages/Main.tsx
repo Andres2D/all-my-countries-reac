@@ -1,29 +1,38 @@
-// import { useEffect } from "react";
-// import { Country } from "../interfaces/country.interface";
+import { FormEvent } from "react";
+import MassiveInput from "../components/MassiveInput";
+import ButtonLink from "../components/UI/ButtonLink";
+import { regionsList } from '../constants/regions';
+import styles from './Main.module.css';
 
 const Main = () => {
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-  
-  // const fetchData = async() => {
-  //   const apiResponse = await fetch('https://restcountries.com/v3.1/all');
-  //   const countries = await apiResponse.json();
-  //   const phoneData = countries.map((co: Country) => {
-  //     const phoneObj = {
-  //       flag: co.flag,
-  //       root: co.idd,
-  //       name: co.name?.common
-  //     }
-  //     return phoneObj;
-  //   });
+  const searchHandler = (input: FormEvent<HTMLInputElement>) => {
+    console.log(input);
+  };
 
-  //   console.log(phoneData);
-  // };
-  
-
-  return <p>Main works!</p>;
+  return (
+    <div className={styles.main}>
+      <MassiveInput 
+        onChange={searchHandler} 
+        placeholder='Search country'
+      />
+      <div className={styles.regions}>
+        {
+          regionsList.map((region, idx) => {
+            return (
+              <ButtonLink 
+                key={idx}
+                classes={styles.region}
+                label={region}
+                isExternal={false}
+                refPage={`/countries/${region}`}
+              />
+            )
+          })
+        }
+      </div>
+    </div>
+  );
 };
 
 export default Main;

@@ -1,0 +1,31 @@
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  flex-direction: column;
+}
+
+.regions {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: space-around;
+}
+
+.region {
+  margin: 10px;
+  font-size: 35px;
+  width: 180px;
+}
+
+@media (max-width: 681px) {
+  .regions {
+    width: 80%;
+  }
+
+  .region {
+    width: 100%;
+  }
+}
