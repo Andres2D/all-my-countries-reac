@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import countriesListMock from '../mock/countries-list.mock';
 import { countryQueryParamCoder } from '../helpers/country-query';
 import MassiveInput from '../components/MassiveInput';
@@ -9,6 +9,7 @@ import styles from './CountriesList.module.css';
 const CountriesList = () => {
   
   const navigate = useNavigate();
+  const { regionId } = useParams();
   const [countriesList, setCountriesList] = useState([...countriesListMock]);
 
   const searchHandler = (event: React.FormEvent<HTMLInputElement>): void => {
@@ -25,7 +26,7 @@ const CountriesList = () => {
       return;
     }
     const query = countryQueryParamCoder(countryId);
-    const url = `/country/${query}`;
+    const url = `/countries/${regionId}/${query}`;
     navigate(url);
   };
 
