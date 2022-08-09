@@ -3,17 +3,19 @@ import Main from './pages/Main';
 import CountriesList from './pages/CountriesList';
 import Country from './pages/Country';
 import './App.css';
+import Header from './components/shared/header/Header';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route
           path='/'
-          element={<Navigate to='/main' />}
+          element={<Navigate to='/countries' />}
         />
         <Route 
-          path='/main'
+          path='/countries'
           element={<Main />}
         />
         <Route 
@@ -21,12 +23,12 @@ function App() {
           element={<CountriesList />}
         />
         <Route 
-          path='/country/:countryName'
+          path='/countries/:regionId/:countryName'
           element={<Country />}
         />
         <Route 
           path='*'
-          element={<Navigate to='/main' />}
+          element={<Navigate to='/countries' />}
         />
       </Routes>
     </div>
