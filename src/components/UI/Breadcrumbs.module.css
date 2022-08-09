@@ -1,0 +1,11 @@
+.breadcrumbs {
+  display: flex;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.breadcrumb {
+  display: flex;
+  text-decoration: none;
+  color: #0B5431;
+}
