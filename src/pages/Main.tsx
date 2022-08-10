@@ -1,4 +1,5 @@
 import { FormEvent } from "react";
+import { debounceTime, Subject } from 'rxjs';
 import MassiveInput from "../components/MassiveInput";
 import ButtonLink from "../components/UI/ButtonLink";
 import { regionsList } from '../constants/regions';
@@ -6,9 +7,20 @@ import styles from './Main.module.css';
 
 const Main = () => {
 
+  const inputSubject = new Subject<string>();
+
   const searchHandler = (input: FormEvent<HTMLInputElement>) => {
-    console.log(input);
+    console.log(input.currentTarget.value);
+    inputSubject.next(input.currentTarget.value);
   };
+
+  inputSubject.pipe(
+    debounceTime(1000)
+  ).subscribe({
+    next: (input) => {
+      console.log(input);
+    }
+  });
 
   return (
     <div className={styles.main}>
