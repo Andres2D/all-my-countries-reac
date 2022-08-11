@@ -7,12 +7,14 @@ interface Props {
 
 const MassiveInput: React.FC<Props> = ({placeholder, onChange}) => {
   return (
-    <input
-      className={styles.search} 
-      type='text' 
-      placeholder={placeholder} 
-      onChange={onChange}
-    />
+    <>
+      <input
+        className={styles.search} 
+        type='text' 
+        placeholder={placeholder} 
+        onChange={onChange}
+      />
+    </>
   )
 };
 
