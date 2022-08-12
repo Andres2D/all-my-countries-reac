@@ -49,9 +49,9 @@ const Main = () => {
       <ButtonLink 
         key={idx}
         classes={styles.region}
-        label={region}
+        label={region.title}
         isExternal={false}
-        refPage={`/countries/${region}`}
+        refPage={`/countries/${region.query}`}
       />
     )
   });

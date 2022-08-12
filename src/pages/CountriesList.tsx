@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-// import countriesListMock from '../mock/countries-list.mock';
 import { countryQueryParamCoder } from '../helpers/country-query';
 import MassiveInput from '../components/MassiveInput';
 import CountryCard from '../components/CountryCard';
@@ -8,11 +7,14 @@ import styles from './CountriesList.module.css';
 import useRequest from '../hooks/use-request';
 import { regionEndpoint } from '../constants/page-urls';
 import { Country } from '../interfaces/country.interface';
+import { regionsList } from '../constants/regions';
+import { RegionDetails } from '../interfaces/region.interface';
 
 const CountriesList = () => {
   
   const navigate = useNavigate();
   const { regionId } = useParams();
+  const [inputSettings, setInputSettings] = useState<RegionDetails>();
   const [originalList, setOriginalList] = useState<Country[]>([]);
   const [countriesList, setCountriesList] = useState<Country[]>([]);
 
@@ -27,6 +29,7 @@ const CountriesList = () => {
       setCountriesList(countries);
       setOriginalList(countries);
     });
+    setInputSettings(regionsList.find(region => region.query === regionId));
   }, [sendRequest, regionId])
 
   if(isLoading) {
@@ -57,9 +60,9 @@ const CountriesList = () => {
 
   return (
     <div>
-      <h1 className={styles.title}>Asia</h1>
+      <h1 className={styles.title}>{inputSettings?.title}</h1>
       <MassiveInput 
-        placeholder='Japan | 日本'
+        placeholder={inputSettings?.placeholder || ''}
         onChange={searchHandler}
       />
       <section className={styles.country_cards}>
