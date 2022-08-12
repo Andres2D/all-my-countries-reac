@@ -1,11 +1,17 @@
 .breadcrumbs {
   display: flex;
   margin-top: 50px;
-  margin-left: 50px;
+  width: 95%;
+  margin-left: 5%;
 }
 
 .breadcrumb {
   display: flex;
   text-decoration: none;
+  font-size: 25px;
   color: #0B5431;
+}
+
+.symbol {
+  width: 25px;
 }

@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { ArrowCircleRightIcon } from '@heroicons/react/solid'
 import styles from './Breadcrumbs.module.css';
 
 const Breadcrumbs = () => {
@@ -13,13 +14,15 @@ const Breadcrumbs = () => {
     <div className={styles.breadcrumbs}>
       {
         paths.map((path, idx) => 
+        <>
+          <ArrowCircleRightIcon className={`${styles.symbol} h-5 w-5 text-blue-500`} />
           <Link 
             key={path}
             className={styles.breadcrumb} 
             to={`/${paths.slice(0, idx+1).join('/')}`}>
-              <small className={styles.symbol}>{`>`}</small>
               &nbsp;{path.toLocaleLowerCase()}&nbsp;
           </Link>
+        </>
         )
       }
     </div>
