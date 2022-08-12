@@ -1,22 +1,47 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import countriesListMock from '../mock/countries-list.mock';
+// import countriesListMock from '../mock/countries-list.mock';
 import { countryQueryParamCoder } from '../helpers/country-query';
 import MassiveInput from '../components/MassiveInput';
 import CountryCard from '../components/CountryCard';
 import styles from './CountriesList.module.css';
+import useRequest from '../hooks/use-request';
+import { regionEndpoint } from '../constants/page-urls';
+import { Country } from '../interfaces/country.interface';
 
 const CountriesList = () => {
   
   const navigate = useNavigate();
   const { regionId } = useParams();
-  const [countriesList, setCountriesList] = useState([...countriesListMock]);
+  const [originalList, setOriginalList] = useState<Country[]>([]);
+  const [countriesList, setCountriesList] = useState<Country[]>([]);
+
+  const { 
+    error,
+    isLoading,
+    sendRequest
+  } = useRequest(); 
+
+  useEffect(() => {
+    sendRequest(regionEndpoint(regionId), (countries: Country[]) => {
+      setCountriesList(countries);
+      setOriginalList(countries);
+    });
+  }, [sendRequest, regionId])
+
+  if(isLoading) {
+    return <p>Loading ...</p>;
+  }
+
+  if(!countriesList || error) {
+    return <p>Error</p>;
+  }
 
   const searchHandler = (event: React.FormEvent<HTMLInputElement>): void => {
     if(!event.currentTarget.value || event.currentTarget.value.trim() === '') {
-      setCountriesList([...countriesListMock]);
+      setCountriesList([...originalList]);
     }
-    setCountriesList([...countriesListMock]
+    setCountriesList([...originalList]
       .filter(country => country.name?.common?.toLocaleLowerCase()
       .includes(event.currentTarget.value.toLocaleLowerCase())));
   }
