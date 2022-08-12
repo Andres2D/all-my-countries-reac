@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Main from './pages/Main';
 import CountriesList from './pages/CountriesList';
-import Country from './pages/Country';
+import CountryPage from './pages/CountryPage';
 import './App.css';
 import Header from './components/shared/header/Header';
 
@@ -24,7 +24,7 @@ function App() {
         />
         <Route 
           path='/countries/:regionId/:countryName'
-          element={<Country />}
+          element={<CountryPage />}
         />
         <Route 
           path='*'

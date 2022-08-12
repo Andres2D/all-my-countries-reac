@@ -1,8 +1,7 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import countryMock from '../mock/country.mock';
 import FlagsContainer from '../components/FlagsContainer';
 import CountryInformation from '../components/CountryInformation';
-// import { countryQueryParamDecoder } from '../helpers/country-query';
 import { 
   currencyFormat,
   demonymsFormat,
@@ -11,12 +10,38 @@ import {
   translationsFormat,
   countryNameFormat
 } from '../helpers/formats';
+import useRequest from '../hooks/use-request';
 
-import styles from './Country.module.css';
+import styles from './CountryPage.module.css';
+import { Country } from '../interfaces/country.interface';
 
-const Country = () => {
-  console.log(countryMock);
+const CountryPage = () => {
+
+  const [countryData, setCountryData] = useState<Country>();
   const { countryName } = useParams();
+
+  const setCountry = (country: any) => {
+    setCountryData(country[0]);
+  }
+
+  const { 
+    error,
+    isLoading,
+    sendRequest
+  } = useRequest(); 
+
+  useEffect(() => {
+    sendRequest(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`, setCountry);
+  }, [sendRequest, countryName])
+  
+  if(!countryData || isLoading) {
+    return <p>Loading ...</p>
+  }
+
+  if(error) {
+    return <p>Error</p>
+  }
+
   const { 
     name, 
     flags, 
@@ -39,12 +64,11 @@ const Country = () => {
     languages,
     translations,
     maps
-  } = countryMock;
+  } = countryData!;
+
   if(!countryName) {
     return <p className='centered'>Invalid country name</p>
   }
-
-  // const country = countryQueryParamDecoder(countryName);
 
   return (
     <>
@@ -80,4 +104,4 @@ const Country = () => {
   );
 };
 
-export default Country;
+export default CountryPage;

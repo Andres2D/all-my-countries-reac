@@ -15,7 +15,7 @@ const Breadcrumbs = () => {
       {
         paths.map((path, idx) => 
         <>
-          <ArrowCircleRightIcon className={`${styles.symbol} h-5 w-5 text-blue-500`} />
+          <ArrowCircleRightIcon key={idx} className={`${styles.symbol} h-5 w-5 text-blue-500`} />
           <Link 
             key={path}
             className={styles.breadcrumb} 
