@@ -27,6 +27,7 @@ const useRequest = () => {
   return {
     isLoading,
     error,
+    setError,
     sendRequest
   }
 };

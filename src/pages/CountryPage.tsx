@@ -33,7 +33,7 @@ const CountryPage = () => {
 
   useEffect(() => {
     sendRequest(countryEndpoint(countryName), setCountry);
-  }, [sendRequest, countryName])
+  }, [sendRequest, countryName]);
   
   if(!countryName || !countryData || isLoading) {
     return <p>Loading ...</p>
