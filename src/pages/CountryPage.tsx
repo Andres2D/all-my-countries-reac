@@ -10,6 +10,7 @@ import {
   translationsFormat,
   countryNameFormat
 } from '../helpers/formats';
+import { countryEndpoint } from '../constants/page-urls';
 import useRequest from '../hooks/use-request';
 
 import styles from './CountryPage.module.css';
@@ -31,10 +32,10 @@ const CountryPage = () => {
   } = useRequest(); 
 
   useEffect(() => {
-    sendRequest(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`, setCountry);
+    sendRequest(countryEndpoint(countryName), setCountry);
   }, [sendRequest, countryName])
   
-  if(!countryData || isLoading) {
+  if(!countryName || !countryData || isLoading) {
     return <p>Loading ...</p>
   }
 
