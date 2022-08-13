@@ -1,8 +1,10 @@
 .breadcrumbs {
   display: flex;
   margin-top: 50px;
-  width: 95%;
   margin-left: 5%;
+  overflow: hidden; 
+  white-space: nowrap; 
+  text-overflow: ellipsis;
 }
 
 .breadcrumb {
@@ -14,4 +16,18 @@
 
 .symbol {
   width: 25px;
+}
+
+@media (max-width: 600px) {
+  .breadcrumbs {
+    width: unset;
+  }
+
+  .breadcrumb {
+    font-size: 15px;
+  }
+
+  .symbol {
+    width: 15px;
+  }
 }

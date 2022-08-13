@@ -8,7 +8,7 @@ const Breadcrumbs = () => {
   let paths: string[] = [];
   paths = location.pathname.split('/');
   paths = paths.slice(1, paths.length)
-  paths = paths.map(path => (path));
+  paths = paths.map(path => (decodeURIComponent(path).slice(0, 19)));
 
   return (
     <div className={styles.breadcrumbs}>

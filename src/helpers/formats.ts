@@ -31,8 +31,7 @@ export const countryNameFormat = (name: Name): string => {
     });
   }
 
-  return nameFormatted.join(' | ')
-
+  return nameFormatted.slice(0, 3).join(' | ');
 };
 
 export const currencyFormat = (currencies: Currencies): string => {

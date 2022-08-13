@@ -21,6 +21,10 @@
 }
 
 @media (max-width: 681px) {
+  .main {
+    margin-top: 40px;
+  }
+
   .regions {
     width: 80%;
   }
