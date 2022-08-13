@@ -8,32 +8,34 @@ import Footer from './components/shared/footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route
-          path='/'
-          element={<Navigate to='/countries' />}
-        />
-        <Route 
-          path='/countries'
-          element={<Main />}
-        />
-        <Route 
-          path='/countries/:regionId'
-          element={<CountriesList />}
-        />
-        <Route 
-          path='/countries/:regionId/:countryName'
-          element={<CountryPage />}
-        />
-        <Route 
-          path='*'
-          element={<Navigate to='/countries' />}
-        />
-      </Routes>
+    <>
+      <div className="App">
+        <Header />
+          <Routes>
+            <Route
+              path='/'
+              element={<Navigate to='/countries' />}
+            />
+            <Route 
+              path='/countries'
+              element={<Main />}
+            />
+            <Route 
+              path='/countries/:regionId'
+              element={<CountriesList />}
+            />
+            <Route 
+              path='/countries/:regionId/:countryName'
+              element={<CountryPage />}
+            />
+            <Route 
+              path='*'
+              element={<Navigate to='/countries' />}
+            />
+          </Routes>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

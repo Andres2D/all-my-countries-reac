@@ -32,6 +32,7 @@ const CountryPage = () => {
   } = useRequest(); 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     sendRequest(countryEndpoint(countryName), setCountry);
   }, [sendRequest, countryName]);
   

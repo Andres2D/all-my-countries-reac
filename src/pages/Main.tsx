@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { debounceTime, Subject } from 'rxjs';
 import CountryCard from "../components/CountryCard";
@@ -27,6 +27,10 @@ const Main = () => {
     // isLoading,
     sendRequest
   } = useRequest(); 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const setSearchResults = (countries: Country[]) => {
     setCountriesSearch(countries);

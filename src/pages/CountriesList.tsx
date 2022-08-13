@@ -25,6 +25,7 @@ const CountriesList = () => {
   } = useRequest(); 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     sendRequest(regionEndpoint(regionId), (countries: Country[]) => {
       setCountriesList(countries);
       setOriginalList(countries);
