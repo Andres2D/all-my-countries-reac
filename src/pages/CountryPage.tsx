@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import FlagsContainer from '../components/FlagsContainer';
 import CountryInformation from '../components/CountryInformation';
 import { 
@@ -74,6 +75,9 @@ const CountryPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{name?.common}</title>
+      </Helmet>
       <h1 className={styles.title}>{name ? countryNameFormat(name) : 'Not found'}</h1>
       <section className={styles.info_section}>
         <FlagsContainer 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import { countryQueryParamCoder } from '../helpers/country-query';
 import MassiveInput from '../components/MassiveInput';
 import CountryCard from '../components/CountryCard';
@@ -61,6 +62,9 @@ const CountriesList = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>{inputSettings?.title}</title>
+      </Helmet>
       <h1 className={styles.title}>{inputSettings?.title}</h1>
       <MassiveInput 
         placeholder={inputSettings?.placeholder || ''}
