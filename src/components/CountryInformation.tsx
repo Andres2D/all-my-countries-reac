@@ -89,11 +89,11 @@ const CountryInformation: React.FC<Props> =
       </div>
       <div className={styles.info_field}>
         <h3 className={styles.field_title}>UN member:</h3>
-        <h3 className={styles.field_value}>{unMember ? 'True' : 'False'}</h3>
+        <h3 className={styles.field_value}>{unMember ? 'YES' : 'NO'}</h3>
       </div>
       <div className={styles.info_field}>
         <h3 className={styles.field_title}>Independent:</h3>
-        <h3 className={styles.field_value}>{independent ? 'True' : 'False'}</h3>
+        <h3 className={styles.field_value}>{independent ? 'YES' : 'NO'}</h3>
       </div>
       <div className={styles.info_field}>
         <h3 className={styles.field_title}>FIFA:</h3>
