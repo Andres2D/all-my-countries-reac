@@ -4,6 +4,7 @@ import CountriesList from './pages/CountriesList';
 import CountryPage from './pages/CountryPage';
 import './App.css';
 import Header from './components/shared/header/Header';
+import Footer from './components/shared/footer/Footer';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           element={<Navigate to='/countries' />}
         />
       </Routes>
+      <Footer />
     </div>
   );
 }
