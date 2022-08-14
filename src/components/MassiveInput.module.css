@@ -1,10 +1,12 @@
 .search {
-  font-size: 45px;
+  font-size: 40px;
   padding: 10px;
   background-color: #ADF4D1;
   color: #0B5431;
   border: 6px solid #0B5431;
   border-radius: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 80%;
 }
 
@@ -21,6 +23,6 @@
     border: 3px solid #0B5431;
     max-width: 70%;
     padding: 8px;
-    font-size: 40px;
+    font-size: 35px;
   }
 }

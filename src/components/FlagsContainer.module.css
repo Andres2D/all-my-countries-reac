@@ -3,10 +3,9 @@
   flex-direction: column;
   justify-content: space-around;
   width: 40%;
-  height: 550px;
+  min-height: 550px;
   margin-bottom: 20px;
 }
-
 
 .flag {
   width: 250px;
@@ -31,5 +30,18 @@
   .flags, 
   .information {
     width: 80%;
+  }
+}
+
+@media (max-width: 315px) {
+  .flags, 
+  .information {
+    width: 99%;
+  }
+
+  .maps {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
   }
 }
